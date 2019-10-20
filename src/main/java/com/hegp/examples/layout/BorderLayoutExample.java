@@ -124,6 +124,7 @@ public class BorderLayoutExample extends JFrame {
             gridBagConstraints2.fill = GridBagConstraints.NONE;// 组件不扩大
             gridBagConstraints2.gridy = 0;// 组件位于网格的纵向索引为0
             nameLabel = new JLabel("吉林省铭泰××有限公司   ");// “公司名称”标签
+            System.out.println(nameLabel.getFont());
             GridBagConstraints gridBagConstraints1 = new GridBagConstraints();// 创建网格限制对象
             gridBagConstraints1.gridx = 4;// 组件位于网格的横向索引为4
             gridBagConstraints1.fill = GridBagConstraints.VERTICAL;// 组件垂直扩大以占据空白区域
@@ -145,6 +146,7 @@ public class BorderLayoutExample extends JFrame {
             statePanel.add(nowDateLabel, gridBagConstraints11);// 向状态面板中添加“当前日期”标签
             statePanel.add(getCzyStateLabel(), gridBagConstraints4);// 向状态面板中添加“操作员”标签
             statePanel.add(getJSeparator2(), gridBagConstraints6);// 向状态面板中添加分隔符
+            System.out.println(statePanel.getFont());
         }
         return statePanel;
     }
@@ -179,8 +181,8 @@ public class BorderLayoutExample extends JFrame {
     }
 
     public static void main(String args[]) {
-        GlobalConfig.setNimbusLookAndFeelStyl1e();
         GlobalConfig.setUIFont();
+//        GlobalConfig.setNimbusLookAndFeelStyl1e();
         new BorderLayoutExample();
     }
 }
