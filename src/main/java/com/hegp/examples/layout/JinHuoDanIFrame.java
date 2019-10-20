@@ -68,8 +68,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得内容面板的方法
-	 * 
-	 * @return 内容面板
 	 */
 	private JPanel getJContentPane() {
 		if (jContentPane == null) {
@@ -84,8 +82,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得顶部面板的方法（内含组件）
-	 * 
-	 * @return 顶部面板（内含组件）
 	 */
 	private JPanel getTopPanel() {
 		if (topPanel == null) {
@@ -171,8 +167,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“进货票号”文本框的方法
-	 * 
-	 * @return “进货票号”文本框
 	 */
 	private JTextField getIdField() {
 		if (idField == null) {
@@ -184,8 +178,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“联系人”文本框的方法
-	 * 
-	 * @return “联系人”文本框
 	 */
 	private JTextField getLxrField() {
 		if (lxrField == null) {
@@ -196,8 +188,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“计算方式”文本框的方法
-	 * 
-	 * @return “计算方式”文本框
 	 */
 	private JComboBox getJsfsComboBox() {
 		if (jsfsComboBox == null) {
@@ -210,8 +200,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“进货时间”文本框的方法
-	 * 
-	 * @return “进货时间”文本框
 	 */
 	private JTextField getJhsjField() {
 		if (jhsjField == null) {
@@ -222,8 +210,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“操作员”文本框的方法
-	 * 
-	 * @return “操作员”文本框
 	 */
 	private JTextField getCzyField() {
 		if (czyField == null) {
@@ -236,8 +222,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得底部面板的方法（内含组件）
-	 * 
-	 * @return 底部面板（内含组件）
 	 */
 	private JPanel getBottomPanel() {
 		if (bottomPanel == null) {
@@ -328,8 +312,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“品种数量”文本框的方法
-	 *
-	 * @return “品种数量”文本框
 	 */
 	private JTextField getPzslField() {
 		if (pzslField == null) {
@@ -341,8 +323,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“货品总数”文本框的方法
-	 *
-	 * @return “货品总数”文本框
 	 */
 	private JTextField getHpzsField() {
 		if (hpzsField == null) {
@@ -354,8 +334,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“合计金额”文本框的方法
-	 *
-	 * @return “合计金额”
 	 */
 	private JTextField getHjjeField() {
 		if (hjjeField == null) {
@@ -367,8 +345,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“验收结论”文本框的方法
-	 *
-	 * @return “验收结论”文本框
 	 */
 	private JTextField getYsjlField() {
 		if (ysjlField == null) {
@@ -379,8 +355,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“添加”按钮的方法
-	 *
-	 * @return “添加”按钮
 	 */
 	private JButton getTjButton() {
 		if (tjButton == null) {
@@ -410,8 +384,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“入库”按钮的方法
-	 *
-	 * @return “入库”按钮
 	 */
 	private JButton getRukuButton() {
 		if (rukuButton == null) {
@@ -462,8 +434,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得表格面板的方法
-	 *
-	 * @return 表格面板
 	 */
 	private JScrollPane getTablePane() {
 		if (tablePane == null) {
@@ -475,8 +445,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得表格模型的方法
-	 *
-	 * @return 表格模型
 	 */
 	private JTable getTable() {
 		if (table == null) {
@@ -506,8 +474,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“商品”下拉列表的方法
-	 *
-	 * @return “商品”下拉列表
 	 */
 	private JComboBox getSpComboBox() {
 		if (spComboBox == null) {
@@ -518,8 +484,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“供应商”下拉列表的方法
-	 *
-	 * @return “供应商”下拉列表
 	 */
 	private JComboBox getGysComboBox() {
 		if (gysComboBox == null) {
@@ -539,8 +503,6 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 
 	/**
 	 * 获得“经手人”下拉列表的方法
-	 *
-	 * @return “经手人”下拉列表
 	 */
 	private JComboBox getJsrComboBox() {
 		if (jsrComboBox == null) {

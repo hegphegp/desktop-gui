@@ -29,7 +29,7 @@ public class GlobalConfig {
     }
 
     public static void setUIFont() {
-        FontUIResource font = new FontUIResource("微软雅黑", Font.PLAIN, 12);
+        FontUIResource font = new FontUIResource("微软雅黑", Font.BOLD, 15);
 
         Set<String> hasConfig = new HashSet();
         /** 统一所有子窗口设置字体样式 */

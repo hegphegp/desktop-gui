@@ -11,10 +11,8 @@ public class DesktopPanel extends JDesktopPane {// 桌面面板
 
 	public DesktopPanel() {// 桌面面板的构造方法
 		super();// 调用父类JDesktopPane的构造器
-//		URL url = DesktopPanel.class.getResource("/res/back.jpg");// 获得背景图片的路径
-//		URL url = new URL("/home/hgp/aa/res/back.jpg");// 获得背景图片的路径
-		backImage = new ImageIcon("/home/hgp/aa/res/back.jpg").getImage();// 获得背景图片
-
+		URL url = DesktopPanel.class.getResource("/res/back.jpg");// 获得背景图片的路径
+		backImage = new ImageIcon(url).getImage();// 获得背景图片
 	}
 
 	@Override
