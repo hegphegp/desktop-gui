@@ -22,9 +22,7 @@ public class JTreeClickAdapter extends MouseAdapter {
             int x = tree.getX();
             int width = tree.getWidth();
             for (int i=x; i<x+width; i=i+5) {
-                if (path==null) {
-                    path = tree.getPathForLocation(i, e.getY());
-                }
+                path = path==null? tree.getPathForLocation(i, e.getY()):null;
                 if (path!=null) {
                     if (rectangle==null) {
                         rectangle = tree.getPathBounds(path);
