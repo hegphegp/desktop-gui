@@ -1,6 +1,7 @@
 package com.hegp.examples.exam001;
 
 import com.hegp.examples.GlobalConfig;
+import com.hegp.examples.event.JTreeClickAdapter;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -21,6 +22,7 @@ public class LayoutMenu extends JFrame {
     public JButton btn3=new JButton("西");
     public JButton btn4=new JButton("北");
     public JButton btn5=new JButton("中");
+    public JPanel mainPanel = new JPanel();
     private Icon icon = new ImageIcon(this.getClass().getResource("/res/icon/jinhuodan.png"));
 
     public static void main(String args[]) {
@@ -34,16 +36,19 @@ public class LayoutMenu extends JFrame {
         this.setSize(800, 600);// 设置主窗体的宽高
         this.setJMenuBar(initMenuBar());// 设置菜单栏
         this.setTitle("铭泰企业进销存管理系统");// 设置窗体的题目
-        this.setLayout(new BorderLayout());// 设置内容面板的布局
+
+        this.getContentPane().add(mainPanel);
+        mainPanel.setLayout(new BorderLayout());// 设置内容面板的布局
 //        this.add(getStatePanel(), SOUTH);// 状态面板置于内容面板的南部
 //        this.add(btn2,BorderLayout.SOUTH);
 //        this.add(btn3, BorderLayout.WEST);
-        this.add(initToolBar(), NORTH);// 工具栏置于内容面板的北部
-        this.add(initSplitPane(), CENTER);// 背景面板置于内容面板的中部
+        mainPanel.add(initToolBar(), NORTH);// 工具栏置于内容面板的北部
+        mainPanel.add(initSplitPane(), CENTER);// 背景面板置于内容面板的中部
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(true);
         this.setVisible(true);
+
     }
 
     private JSplitPane initSplitPane() {
@@ -61,7 +66,7 @@ public class LayoutMenu extends JFrame {
 
     private JToolBar initToolBar(){
         JToolBar toolBar = new JToolBar();
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 10; i++) {
             JButton button = new JButton("工具"+i);
             button.setIcon(icon);
             toolBar.add(button);
@@ -120,17 +125,17 @@ public class LayoutMenu extends JFrame {
         }
         top.add(new DefaultMutableTreeNode("总经理"));
         JTree tree = new JTree(top);
+        tree.addMouseListener(new JTreeClickAdapter(tree));
+
         // 添加选择事件
         tree.addTreeSelectionListener(new TreeSelectionListener() {
 
             @Override
             public void valueChanged(TreeSelectionEvent e) {
+
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
 
-                if (node == null)
-                    return;
-
-                if (node.isLeaf()) {
+                if (node!=null && node.isLeaf()) {
                     System.out.println("你选择了：" + node.getUserObject().toString());
                 }
 
