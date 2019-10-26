@@ -7,8 +7,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.plaf.FontUIResource;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import static java.awt.BorderLayout.CENTER;
@@ -26,7 +29,7 @@ public class LayoutMenu extends JFrame {
     private Icon icon = new ImageIcon(this.getClass().getResource("/res/icon/jinhuodan.png"));
 
     public static void main(String args[]) {
-        GlobalConfig.setCurrentSystemStyle();
+        GlobalConfig.setNimbusLookAndFeelStyl1e();
         LayoutMenu frame = new LayoutMenu();
         frame.setVisible(true);
     }
@@ -51,14 +54,45 @@ public class LayoutMenu extends JFrame {
 
     }
 
+    private JTabbedPane tabbedPane() {
+        JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
+        tabbedPane.addTab("Tab02", new ImageIcon("bb.jpg"), createTextPanel("TAB 02"));
+        tabbedPane.addTab("Tab03", new ImageIcon("bb.jpg"), createTextPanel("TAB 03"), "This is a Tab.");
+        tabbedPane.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("当前选中的选项卡: " + tabbedPane.getSelectedIndex());
+            }
+        });
+
+        // 设置默认选中的选项卡
+        tabbedPane.setSelectedIndex(1);
+        return tabbedPane;
+    }
+
     private JSplitPane initSplitPane() {
-        JPanel rightPanel= new JPanel();
         JSplitPane splitPane=new JSplitPane();//创建一个分割容器类
 //        splitPane.setOneTouchExpandable(true);//让分割线显示出箭头
         splitPane.setContinuousLayout(true);//操作箭头，重绘图形
         splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);//设置分割线方向 纵向分布
         splitPane.setLeftComponent(initJTree());//设置左边的组件
-        splitPane.setRightComponent(rightPanel);//设置右边的组件
+        splitPane.setRightComponent(tabbedPane());//设置右边的组件
         splitPane.setDividerSize(5);//设置分割线的大小
         splitPane.setDividerLocation(200);//设置分割线位于中央
         return splitPane;
@@ -142,5 +176,23 @@ public class LayoutMenu extends JFrame {
             }
         });
         return tree;
+    }
+
+    /**
+     * 创建一个面板，面板中心显示一个标签，用于表示某个选项卡需要显示的内容
+     */
+    private static JComponent createTextPanel(String text) {
+        // 创建面板, 使用一个 1 行 1 列的网格布局（为了让标签的宽高自动撑满面板）
+        JPanel panel = new JPanel(new GridLayout(1, 1));
+
+        // 创建标签
+        JLabel label = new JLabel(text);
+        label.setFont(new Font(null, Font.PLAIN, 50));
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
+        // 添加标签到面板
+        panel.add(label);
+
+        return panel;
     }
 }

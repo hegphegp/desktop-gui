@@ -35,7 +35,7 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 	private JLabel ysjlLabel = null;// “验收结论”标签
 	private JTextField ysjlField = null;// “验收结论”文本框
 	private JLabel czyLabel = null;// “操作员”标签
-	private JButton tjButton = null;// “添加”按钮
+	private JButton tjButton = null;// “Test”按钮
 	private JButton rukuButton = null;// “入库”按钮
 	private JScrollPane tablePane = null;// 表格面板
 	private JTable table = null;// 表格模型
@@ -354,12 +354,12 @@ public class JinHuoDanIFrame extends JInternalFrame {// 进货单内部窗体
 	}
 
 	/**
-	 * 获得“添加”按钮的方法
+	 * 获得“Test”按钮的方法
 	 */
 	private JButton getTjButton() {
 		if (tjButton == null) {
 			tjButton = new JButton();
-			tjButton.setText("添加");
+			tjButton.setText("Test");
 			tjButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					// 获得票号
