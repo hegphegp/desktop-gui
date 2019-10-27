@@ -1,15 +1,17 @@
 package com.hegp.examples.exam002;
 
 import com.hegp.examples.GlobalConfig;
+import com.hegp.examples.components.CloseTabbedItem;
+import com.hegp.examples.components.CloseTabbedPane;
 
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Tab extends JFrame {
+public class Main extends JFrame {
     public JMenuItem menu;
-    public static JTabbedPane pane;
+    public CloseTabbedPane closeTabbedPane;
 
-    public Tab() {
+    public Main() {
         super("选项卡窗格");
         setVisible(true);
         setSize(800, 600);
@@ -21,14 +23,14 @@ public class Tab extends JFrame {
         JMenuBar bar = new JMenuBar();
         bar.add(menu);
         setJMenuBar(bar);
-        pane = new JTabbedPane();
-        add(pane);
-        new AddTab();
+        closeTabbedPane = new CloseTabbedPane();
+        setContentPane(closeTabbedPane);
+        closeTabbedPane.addTabbedItem(new CloseTabbedItem(new JPanel(), "面板"+ closeTabbedPane.getTabCount()));
         this.menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                if (e.getSource() == menu) {
-                    new AddTab();
+                closeTabbedPane.addTabbedItem(new CloseTabbedItem(new JPanel(), "面板"+ closeTabbedPane.getTabCount()));
 //                }
             }
         });
@@ -36,7 +38,7 @@ public class Tab extends JFrame {
 
     public static void main(String[] args) throws Exception {
         GlobalConfig.setNimbusLookAndFeelStyl1e();
-        new Tab();
+        new Main();
     }
 
 

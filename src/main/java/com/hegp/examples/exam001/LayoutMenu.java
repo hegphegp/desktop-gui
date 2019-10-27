@@ -1,6 +1,8 @@
 package com.hegp.examples.exam001;
 
 import com.hegp.examples.GlobalConfig;
+import com.hegp.examples.components.CloseTabbedItem;
+import com.hegp.examples.components.CloseTabbedPane;
 import com.hegp.examples.event.JTreeClickAdapter;
 
 import java.awt.*;
@@ -26,6 +28,7 @@ public class LayoutMenu extends JFrame {
     public JButton btn4=new JButton("北");
     public JButton btn5=new JButton("中");
     public JPanel mainPanel = new JPanel();
+    public CloseTabbedPane closeTabbedPane;
     private Icon icon = new ImageIcon(this.getClass().getResource("/res/icon/jinhuodan.png"));
 
     public static void main(String args[]) {
@@ -54,36 +57,15 @@ public class LayoutMenu extends JFrame {
 
     }
 
-    private JTabbedPane tabbedPane() {
-        JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab01", createTextPanel("TAB 01"));
-        tabbedPane.addTab("Tab02", new ImageIcon("bb.jpg"), createTextPanel("TAB 02"));
-        tabbedPane.addTab("Tab03", new ImageIcon("bb.jpg"), createTextPanel("TAB 03"), "This is a Tab.");
-        tabbedPane.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("当前选中的选项卡: " + tabbedPane.getSelectedIndex());
-            }
-        });
+    private JTabbedPane initCloseTabbedPane() {
+        closeTabbedPane = new CloseTabbedPane();
+        for (int i = 0; i < 3; i++) {
+            closeTabbedPane.addTabbedItem(new JPanel(), "面板"+ closeTabbedPane.getTabCount());
+        }
 
         // 设置默认选中的选项卡
-        tabbedPane.setSelectedIndex(1);
-        return tabbedPane;
+        closeTabbedPane.setSelectedIndex(1);
+        return closeTabbedPane;
     }
 
     private JSplitPane initSplitPane() {
@@ -92,7 +74,7 @@ public class LayoutMenu extends JFrame {
         splitPane.setContinuousLayout(true);//操作箭头，重绘图形
         splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);//设置分割线方向 纵向分布
         splitPane.setLeftComponent(initJTree());//设置左边的组件
-        splitPane.setRightComponent(tabbedPane());//设置右边的组件
+        splitPane.setRightComponent(initCloseTabbedPane());//设置右边的组件
         splitPane.setDividerSize(5);//设置分割线的大小
         splitPane.setDividerLocation(200);//设置分割线位于中央
         return splitPane;
@@ -141,9 +123,9 @@ public class LayoutMenu extends JFrame {
     private ActionListener listener = new ItemListener();
 
     private class ItemListener implements ActionListener {
+        @Override
         public void actionPerformed(ActionEvent e) {
-            JMenuItem menuItem = (JMenuItem) e.getSource();
-            System.out.println("您单击的是菜单项：" + menuItem.getText());
+            closeTabbedPane.addTabbedItem(new CloseTabbedItem(new JPanel(), "面板"+ closeTabbedPane.getTabCount()));
         }
     }
 
